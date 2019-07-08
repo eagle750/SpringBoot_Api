@@ -17,5 +17,5 @@ public interface BallsDataRepo extends JpaRepository<BallsData, Integer>{
 	public static final String FIND_SPECIFIC_OVER_DETAILS = "SELECT * FROM balls_data";
 
 	@Query(value = FIND_SPECIFIC_OVER_DETAILS, nativeQuery = true)
-	public List<Object[]> findSpecificOverDetails();
+	public List<BallsData> findMatchDetails();
 }
