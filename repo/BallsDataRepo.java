@@ -14,7 +14,7 @@ public interface BallsDataRepo extends JpaRepository<BallsData, Integer>{
 
 	public BallsData findFirstByOrderByIdDesc();
 	
-	public static final String FIND_SPECIFIC_OVER_DETAILS = "SELECT * FROM balls_data";
+	public static final String FIND_SPECIFIC_OVER_DETAILS = "SELECT * FROM balls_data WHERE series_no = (SELECT series_no FROM balls_data  ORDER BY ball_id DESC LIMIT 1)";
 
 	@Query(value = FIND_SPECIFIC_OVER_DETAILS, nativeQuery = true)
 	public List<BallsData> findMatchDetails();

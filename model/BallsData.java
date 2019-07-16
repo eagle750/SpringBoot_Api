@@ -18,6 +18,9 @@ public class BallsData
 	@Column(name = "ball_id")
 	private int id;
 	
+	@Column(name = "ballno")
+	private int ballno;
+	
 	@Column(name = "prev_team_score")
 	private int prev_team_score;
 	
@@ -44,6 +47,12 @@ public class BallsData
 	
 	@Column(name = "status")
 	private String status;
+	
+	@Column(name = "series_no")
+	private int series_no;
+	
+	@Column(name = "match_no")
+	private int match_no;
 
 	public BallsData() {
 		super();
@@ -91,5 +100,17 @@ public class BallsData
 
 	public String getstatus() {
 		return status;
+	}
+	
+	public int getballno() {
+		return ballno;
+	}
+	
+	public int getseries_no() {
+		return series_no;
+	}
+	
+	public int getmatch_no() {
+		return match_no;
 	}
 }
