@@ -49,7 +49,7 @@ public class Series {
 		return total_matches;
 	}
 
-	public int getTeam1_won() {
+	public int getTeam1_wozn() {
 		return team1_won;
 	}
 

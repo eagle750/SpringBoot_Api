@@ -15,5 +15,4 @@ public class RestfulApiDb2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulApiDb2Application.class, args);
 	}
-
 }

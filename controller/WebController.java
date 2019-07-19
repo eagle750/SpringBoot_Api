@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,24 +32,17 @@ public class WebController {
 		return  match_details;
 	}
 	
-	/*@RequestMapping("/cricket_api")
-	public List<Series> returnScoreBoard() {
-		List<Series> series = seriesRepo.findAll();
-		return  series;
-	}*/
-	
-	/*@RequestMapping("/cricket_api")
-	public BallsData returnScoreBoard() {
-		BallsData ballsData = repo.findFirstByOrderByIdDesc();
-		return  ballsData;
-	}*/
-	
-	@RequestMapping("/match_details")
+	@RequestMapping("/match_details/{id}")
+	public List<BallsData>  returnmatchDetails(@PathVariable int id)
+	{
+		List<BallsData> matchDetails = repo.findSpecificMatchDetails(id);
+		return matchDetails;
+	}
+
+	@RequestMapping("/match_details/all")
 	public List<BallsData>  returnmatchDetails()
 	{
 		List<BallsData> matchDetails = repo.findMatchDetails();
 		return matchDetails;
 	}
-
-
 }

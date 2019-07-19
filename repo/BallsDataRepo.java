@@ -18,4 +18,7 @@ public interface BallsDataRepo extends JpaRepository<BallsData, Integer>{
 
 	@Query(value = FIND_SPECIFIC_OVER_DETAILS, nativeQuery = true)
 	public List<BallsData> findMatchDetails();
+	
+	@Query(value = "SELECT * FROM balls_data WHERE series_no = (SELECT series_no FROM balls_data  ORDER BY ball_id DESC LIMIT 1) AND match_no = ?1", nativeQuery = true)
+	public List<BallsData> findSpecificMatchDetails(int id);
 }
